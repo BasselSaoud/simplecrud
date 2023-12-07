@@ -29,7 +29,8 @@ exports.postBook = async function (query, collection, options) {
  * @returns The result of the update operation
  */
 exports.putBook = async function (query, collection, update, options) {
-    return await collection.update(query, update, options)
+    update = { $set: update }
+    return await collection.updateOne(query, update, options)
 }
 
 /**
